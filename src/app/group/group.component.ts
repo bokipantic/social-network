@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 
+import { Subscription } from 'rxjs';
 import { Friend } from '../friend-model';
 import { GroupService } from '../group.service';
 
