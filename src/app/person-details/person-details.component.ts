@@ -15,6 +15,7 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
   persons: Friend[];
   userSelected: Friend;
   friendsOfFriends: number[];
+  suggestedFriends: number[];
   friendSub: Subscription;
 
   constructor(private route: ActivatedRoute, private service: GroupService) { }
@@ -35,6 +36,18 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
               friend.friends.forEach(element => {
                 if (this.friendsOfFriends.indexOf(element) === -1 && this.userSelected.friends.indexOf(element) === -1) {
                   this.friendsOfFriends.push(element);
+                }
+              });
+            }
+
+            this.suggestedFriends = [];
+            if (this.userSelected.friends.length > 1) {
+              this.persons.forEach(person => {
+                if (person.friends.length > 1 && person !== this.userSelected) {
+                  const filteredFriends = person.friends.filter(value => this.userSelected.friends.includes(value));
+                  if (filteredFriends.length > 1) {
+                    this.suggestedFriends.push(person.id);
+                  }
                 }
               });
             }

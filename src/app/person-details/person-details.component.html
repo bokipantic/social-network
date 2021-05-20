@@ -16,10 +16,13 @@
             <li *ngFor="let id of friendsOfFriends">{{ getFriendsName(id) }}</li>
         </ul>
         <hr>
-        <h4>Suggested friends:</h4>
-        <!-- <ul>
-            <li *ngFor="let id of friendsOfFriends">{{ getFriendsName(id) }}</li>
-        </ul> -->
+        <h4 *ngIf="suggestedFriends.length; else message">Suggested friends:</h4>
+        <ul>
+            <li *ngFor="let id of suggestedFriends">{{ getFriendsName(id) }}</li>
+        </ul>
+        <ng-template #message>
+            <h4>No suggested friends</h4>
+        </ng-template>
     </div>
 </div>
 
