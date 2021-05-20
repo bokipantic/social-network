@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <h3>User information:</h3>
+        <br>
+        <h4>Name: {{ userSelected.firstName }} {{ userSelected.surname }}</h4>
+        <h4>Age: {{ userSelected.age }}</h4>
+        <h4>Gender: {{ userSelected.gender }}</h4>
+        <hr>
+        <h4>Direct friends:</h4>
+        <ul>
+            <li *ngFor="let id of userSelected.friends">{{ getFriendsName(id) }}</li>
+        </ul>
+        <hr>
+        <h4>Friends of friends:</h4>
+        <ul>
+            <li *ngFor="let id of friendsOfFriends">{{ getFriendsName(id) }}</li>
+        </ul>
+        <hr>
+        <h4>Suggested friends:</h4>
+        <!-- <ul>
+            <li *ngFor="let id of friendsOfFriends">{{ getFriendsName(id) }}</li>
+        </ul> -->
+    </div>
+</div>
+

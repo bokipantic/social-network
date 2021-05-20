@@ -1,0 +1,14 @@
+<div class="row">
+    <h2>Social Network</h2>
+    <br><br>
+    <div class="col-xs-12 col-md-6">
+        <h4><u>Group members:</u></h4>
+        <br>
+        <div class="list-group">
+            <app-person *ngFor="let person of persons" [member]="person" [friends]="persons"></app-person>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <router-outlet></router-outlet>
+    </div>
+</div>

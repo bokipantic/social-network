@@ -1,0 +1,12 @@
+<a class="list-group-item" routerLinkActive="active" [routerLink]="[member.id]">
+    <div>
+        <h4 class="list-group-item-heading">{{ member.firstName }} {{ member.surname }}</h4>
+        <p *ngIf="member.age" class="list-group-item-text">Age: {{ member.age }}</p>
+        <p class="list-group-item-text">Gender: {{ member.gender }}</p>
+        <hr>
+        <p *ngIf="member.friends" class="list-group-item-text" style="padding-bottom: 10px;">Friends:</p>
+        <ul>
+            <li *ngFor="let id of member.friends">{{ getFriendsName(id) }}</li>
+        </ul>
+    </div>
+</a>
