@@ -1,28 +1,29 @@
 <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
-        <h3>User information:</h3>
-        <br>
-        <h4>Name: {{ userSelected.firstName }} {{ userSelected.surname }}</h4>
-        <h4>Age: {{ userSelected.age }}</h4>
-        <h4>Gender: {{ userSelected.gender }}</h4>
-        <hr>
-        <h4>Direct friends:</h4>
-        <ul>
-            <li *ngFor="let id of userSelected.friends">{{ getFriendsName(id) }}</li>
-        </ul>
-        <hr>
-        <h4>Friends of friends:</h4>
-        <ul>
-            <li *ngFor="let id of friendsOfFriends">{{ getFriendsName(id) }}</li>
-        </ul>
-        <hr>
-        <h4 *ngIf="suggestedFriends.length; else message">Suggested friends:</h4>
-        <ul>
-            <li *ngFor="let id of suggestedFriends">{{ getFriendsName(id) }}</li>
-        </ul>
-        <ng-template #message>
-            <h4>No suggested friends</h4>
-        </ng-template>
+        <ng-container *ngIf="userSelected">
+            <h3>User information:</h3>
+            <br>
+            <h4>Name: {{ userSelected.firstName }} {{ userSelected.surname }}</h4>
+            <h4>Age: {{ userSelected.age }}</h4>
+            <h4>Gender: {{ userSelected.gender }}</h4>
+            <hr>
+            <h4>Direct friends:</h4>
+            <ul>
+                <li *ngFor="let id of userSelected.friends">{{ getFriendsName(id) }}</li>
+            </ul>
+            <hr>
+            <h4>Friends of friends:</h4>
+            <ul>
+                <li *ngFor="let id of friendsOfFriends">{{ getFriendsName(id) }}</li>
+            </ul>
+            <hr>
+            <h4 *ngIf="suggestedFriends.length; else message">Suggested friends:</h4>
+            <ul>
+                <li *ngFor="let id of suggestedFriends">{{ getFriendsName(id) }}</li>
+            </ul>
+            <ng-template #message>
+                <h4>No suggested friends</h4>
+            </ng-template>
+        </ng-container>
     </div>
 </div>
-
