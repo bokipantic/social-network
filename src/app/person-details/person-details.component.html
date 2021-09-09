@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="col-xs-12 col-md-10 col-md-offset-2">
         <ng-container *ngIf="userSelected">
             <h3>User information:</h3>
             <br>
@@ -7,17 +7,20 @@
             <h4>Age: {{ userSelected.age }}</h4>
             <h4>Gender: {{ userSelected.gender }}</h4>
             <hr>
-            <h4>Direct friends:</h4>
+            <h4 data-toggle="tooltip" data-placement="top" title="Tooltip on top">Direct friends:</h4>
+            <p>* those people who are directly connected to the chosen user</p>
             <ul>
                 <li *ngFor="let id of userSelected.friends">{{ getFriendsName(id) }}</li>
             </ul>
             <hr>
             <h4>Friends of friends:</h4>
+            <p>* those people who are two steps away from the chosen user but are not directly connected to the chosen user</p>
             <ul>
                 <li *ngFor="let id of friendsOfFriends">{{ getFriendsName(id) }}</li>
             </ul>
             <hr>
             <h4 *ngIf="suggestedFriends.length; else message">Suggested friends:</h4>
+            <p>* those people who know two or more direct friends of the chosen user but are not directly connected to the chosen user</p>
             <ul>
                 <li *ngFor="let id of suggestedFriends">{{ getFriendsName(id) }}</li>
             </ul>
