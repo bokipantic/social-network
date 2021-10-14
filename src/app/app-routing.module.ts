@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmtpyComponent } from './emtpy/emtpy.component';
 
 import { GroupComponent } from './group/group.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
+import { EmtpyComponent } from './emtpy/emtpy.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/persons', pathMatch: 'full' },

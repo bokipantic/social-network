@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
 import { Subscription } from 'rxjs';
+
 import { Friend } from '../friend-model';
 import { GroupService } from '../group.service';
 
@@ -11,13 +11,13 @@ import { GroupService } from '../group.service';
   styleUrls: ['./group.component.css']
 })
 export class GroupComponent implements OnInit, OnDestroy {
-  persons;
+  persons: Friend[];
   personsSubcription: Subscription;
 
-  constructor(private http: HttpClient, private service: GroupService) { }
+  constructor(private http: HttpClient, private groupService: GroupService) { }
 
   ngOnInit() {
-    this.personsSubcription = this.service.getPersons().subscribe(
+    this.personsSubcription = this.groupService.getPersons().subscribe(
       (response: Friend[]) => this.persons = response
     );
   }
